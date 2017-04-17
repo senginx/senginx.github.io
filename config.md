@@ -1,4 +1,4 @@
-http {
+    http {
     #nginx原有配置
     #定义一个10MB的内存用于访问统计
     statistics_zone 10m; 
@@ -14,7 +14,6 @@ http {
     limit_req_zone $binary_remote_addr zone=mudoom:10m rate=10r/s;
     #定义一个容量10MB的行为识别空间，最小有效请求数量是10个，采样周期是2秒
     ip_behavior_zone zone=brand:10m sample_base=10 sample_cycle=2s;
-
     #定义IP白名单
     geo $ip_wl {
         #使用以地址段的形式定义地址
