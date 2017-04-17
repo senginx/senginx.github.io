@@ -1,6 +1,6 @@
 http {
     #nginx原有配置
-    #定义一个10MB的内存用于SEnginx访问统计
+    #定义一个10MB的内存用于访问统计
     statistics_zone 10m; 
     #开启全局IP黑名单
     ip_blacklist on;
