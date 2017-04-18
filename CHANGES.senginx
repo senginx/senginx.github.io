@@ -1,0 +1,289 @@
+
+Changes with senginx 1.7.0                                      07 Mar  2017
+    *) Feature: upgrade to original nginx 1.10.2.
+
+    *) Change: replace tcp_proxy_module support with nginx's original stream module.
+
+    *) Change: upgrade lua-nginx-module to 0.10.7.
+
+    *) Change: upgrade ngx_cache_purge to 2.3.
+
+    *) Change: upgrade memc-nginx-module to 0.17.
+
+    *) Change: remove spdy support by original nginx.
+
+Changes with senginx 1.6.2                                      07 Mar  2015
+
+    *) Feature: robot_mitigation_secret directive.
+
+    *) Feature: robot_mitigation_hash_input directive.
+
+    *) Feature: srcache and memc module are included by default.
+
+    *) Bugfix: Issue #6 on github, bugs in senginx.spec file.
+
+    *) Bugfix: coredump in ngx_http_proxy_module.
+
+    *) Bugfix: coredump in user-agent whitelist module.
+
+
+Changes with senginx 1.6.1                                      09 Sep  2014
+
+    *) Feature: upgrade to original nginx 1.7.4.
+
+    *) Change: Replace current syslog support with nginx's original one.
+
+    *) Bugfix: Issue #20 on github, a segmentation fault in dynamic resolve functionality.
+
+
+Changes with senginx 1.6.0                                      14 May  2014
+
+    *) Feature: upgrade to original nginx 1.6.0.
+
+    *) Feature: enhancement to dynamic resolve functionality.
+
+    *) Feature: ngx_http_statistics module that supports monitoring traffic and attacks.
+
+    *) Feature: add a demo html page to demonstrate ngx_http_statistics module, thanks to Yu Qing.
+
+    *) Feature: upgrade Mod Security to 2.8.0.
+
+    *) Bugfix: in cookie poisoning module.
+
+
+Changes with senginx 1.5.13                                     03 Apr  2014
+
+    *) Feature: support proxying to a client-verification enabled https server,
+                and can also support server verification in proxy module.
+
+    *) Feature: Lua language is integrated into SEnginx.
+
+    *) Change: change the behavior when a DNS server is not responsible when doing upstream
+               dynamic DNS query.
+
+
+Changes with senginx 1.5.12                                     20 Mar  2014
+
+    *) Feature: upgrade to original nginx 1.5.12, which fixes CVE-2014-0133 security problem.
+
+    *) Feature: SEnginx supports OpenStack LBaaS now. Find more at:
+                https://github.com/NeusoftSecurity/SEnginx-LBaaS-Driver
+
+    *) Bugfix: In ngx_http_whitelist module, if resovler is not response/not reachable, nginx
+               workers will hang up while reloading or shutting down due to socket leaks.
+
+    *) Bugfix: Fix upstream checking issues when using tcp method.
+
+    *) Bugfix: Segmentation fault may occur in ngx_http_neteye_security module.
+
+
+Changes with senginx 1.5.11                                     05 Mar  2014
+
+    *) Feature: upgrade to original nginx 1.5.11, which fixes CVE-2014-0088 security problem.
+
+    *) Feature: global user-agent whitelist, with DNS reverse lookup mechanism.
+
+    *) Feature: naxsi module supports global user-agent whitelist and ip whitelist.
+
+    *) Feature: cookie poisoning module supports global user-agent whitelist and ip whitelist.
+
+    *) Feature: web defacement module supports global user-agent whitelist and ip whitelist.
+
+    *) Feature: robot mitigation module supports global user-agent whitelist and ip whitelist.
+
+    *) Feature: ngx_cache_purge module is integrated.
+
+    *) Bugfix: solve memory leaks in robot mitigation module.
+
+
+Changes with senginx 1.5.10                                     08 Feb  2014
+
+    *) Feature: upgrade to original nginx 1.5.10, which supports SPDY 3.1 protocol.
+
+    *) Feature: IP behavior module. This module is used to detect users' access behavior to a
+                web site, it's usually used with other security modules to block robots.
+
+    *) Feature: Conditional limit_req module. Based on tengine's limit_req module, and add a
+                new "condition" parameter.
+
+    *) Feature: upstream check module, which supports 2 more load balancing algorithms:
+                the fair algorithm and the fastest algorithm.
+
+    *) Feature: support dynamic resolving host names when proxy passing to an url or an upstream
+                server pool.
+
+    *) Feature: support sending access and error logs to local syslog daemon.
+
+    *) Change: modify directive name in session persistence module:
+               http_cookie is now changed to insert_cookie.
+
+    *) Bugfix: solve the compile failure when macro OPENSSL_NO_TLSEXT is defined.
+
+
+Changes with senginx 1.5.9                                      19 Dec  2013
+
+    *) Feature: upgrade to original nginx 1.5.8.
+
+    *) Feature: system command in ip blacklist, add two new directives:
+        ip_blacklist_syscmd and ip_blacklist_mod.
+
+    *) Change: optimize the performance of robot mitigation module.
+
+    *) Change: modify the timeout of dns cache in robot mitigation to 5s.
+
+
+Changes with senginx 1.5.8                                      21 Nov  2013
+
+    *) Feature: upgrade to original nginx 1.5.7, which fixes CVE-2013-4547 security problem.
+
+    *) Change: make monitor session persistence to a sub mode of insert cookie persistence.
+
+    *) Bugfix: add Cache-Control: no-cache, no-store to robot challenge reponse, to avoid cache
+
+    *) Bugfix: fix multipart/form-data problem in robot mitigation.
+
+
+Changes with senginx 1.5.7                                      07 Nov  2013
+
+    *) Feature: add session base persistence method.
+
+    *) Feature: upgrade naxsi to version 0.5.3.
+
+    *) Change: Delete "robot_mitigation_whitelist_any" directive.
+
+    *) Bugfix: fix the bug in IP whitelist.
+
+    *) Bugfix: fix the compilation problem of naxsi in 32-bit CentOS 6 environment.
+
+    *) Bugfix: add "path" option to the cookie generated by "insert cookie persistence".
+
+
+Changes with senginx 1.5.6                                      24 Oct  2013
+
+    *) Feature: upgrade to original nginx 1.5.6.
+
+    *) Feature: support domain name in rotot mitigation whitliet.
+    
+    *) Feature: support match any of ip_whitelist and http_header_whitelist in robot_mitigation.
+    
+    *) Bugfix: if only one IP in a line in ip_whitelist, the match of ip_whitelist may be error.
+
+
+Changes with senginx 1.5.5                                      09 Oct  2013
+
+    *) Feature: upgrade to original nginx 1.5.5.
+
+    *) Feature: IP blacklist module.
+
+    *) Feature: Support caseless match in robot mitigation's whitelist.
+
+    *) Feature: Support local mode in cookie poisoning module.
+
+    *) Feature: Support ajax request bypass in robot mitigation module.
+
+    *) Change: don't use redirect response in session module, and don't use ngx_timer
+       in session module any more.
+
+    *) Change: move robot mitigation to the beginning of the security chain.
+
+    *) Change: delete robot_mitigation_action directive in robot mitigation module.
+
+    *) Bugfix: solve the compatibility problem with try_file directive when enabling
+       robot mitigation.
+
+    *) Bugfix: solve the memory leaking problem in cookie poison module.
+
+    *) Bugfix: some unlock issues in session module.
+
+
+Changes with senginx 1.5.4                                      12 Sep  2013
+
+    *) Feature: upgrade to original nginx 1.5.4.
+
+    *) Feature: web defacement protection.
+
+    *) Change: Add "no-cache" header to the robot mitigation's
+       challenging response to avoid being cached by front-side
+       caches.
+
+    *) Bugfix: fix segmentation fault in cookie poisoning module.
+
+    *) Bugfix: fix some confguration issues in robot mitigation module.
+
+
+Changes with senginx 1.5.3-2                                    21 Aug  2013
+    
+    *) Bugfix: fix problem in NS layer.
+
+
+Changes with senginx 1.5.3-1                                    20 Aug  2013
+    
+    *) Feature: add naxsi into neteye security layer.
+
+    *) Bugfix: fix segmetation fault in robot mitigation module.
+
+    *) Bugfix: fix compile issue in cookie poisoning module.
+
+    *) Change: update .gitignore file.
+
+
+Changes with senginx 1.5.3                                      13 Aug  2013
+    
+    *) Feature: upgrade to original nginx 1.5.3.
+
+    *) Feature: add IP whitelist in robot mitigation module.
+
+    *) Feature: cookie poisoning protection module.
+
+    *) Feature: update ModSecurity to 2.7.5.
+
+    *) Change: session API changed to a modern style.
+
+    *) Bugfix: fix NULL pointer issue in NS Layer while sending log.
+
+    *) Bugfix: in automated test cases.
+
+
+Changes with senginx 1.5.2                                      26 July 2013
+
+    *) Feature: upgrade to original nginx 1.5.2.
+
+
+Changes with senginx 1.5.1                                      18 June 2013
+
+    *) Feature: upgrade to original nginx 1.5.1.
+
+    *) Feature: integrate ModSecurity 2.7.4, not compiled by default.
+    
+    *) Change: don't support customized actions in naxsi.
+
+
+Changes with senginx 1.5.0-1                                    24 May 2013
+ 
+    *) Bugfix: resolve the compilation failed problem.
+
+
+Changes with senginx 1.5.0                                      9 May 2013
+
+    *) Feature: upgrade to original nginx 1.5.0.
+
+    *) Feature: add blacklist function to robot mitigation module.
+
+    *) Feature: upgrade to original nginx 1.4.0.
+
+    *) Feature: add the naxsi module to senginx.
+
+    *) Feature: the neteye security layer module.
+
+    *) Feature: the http session module.
+
+    *) Feature: the fastest load balancing algorithm.
+
+    *) Feature: the session persistect module.
+
+    *) Feature: the "proxy_cache_types" directive.
+
+    *) Feature: the "ifall" and "ifany" directives.
+
+
+
