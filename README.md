@@ -64,5 +64,7 @@ Other
 
 More information, check our website: http://www.senginx.org
 
+Thanks  Paul Yang ...  
+
 ### Support or Contact
 
